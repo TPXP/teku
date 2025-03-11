@@ -34,11 +34,11 @@ import tech.pegasys.teku.storage.client.RecentChainData;
 public class SyncStallDetector extends Service {
   private static final Logger LOG = LogManager.getLogger();
 
-  static final Duration STALL_CHECK_INTERVAL = Duration.ofSeconds(15);
+  static final Duration STALL_CHECK_INTERVAL = Duration.ofSeconds(100);
   // Time periods are fairly long because sync stalls should be rare and we might be rate limited
   // if we have to request blocks from a small number of peers.
-  static final int MAX_SECONDS_BETWEEN_IMPORTS = 180;
-  static final int MAX_SECONDS_BETWEEN_IMPORT_PROGRESS = 180;
+  static final int MAX_SECONDS_BETWEEN_IMPORTS = 7200;
+  static final int MAX_SECONDS_BETWEEN_IMPORT_PROGRESS = 7200;
 
   private final Spec spec;
   private final EventThread eventThread;
